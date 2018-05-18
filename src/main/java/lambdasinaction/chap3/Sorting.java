@@ -22,6 +22,7 @@ public class Sorting {
         // 2
         // [Apple{color='green', weight=30}, Apple{color='green', weight=80}, Apple{color='green', weight=155}]
         inventory.sort(new Comparator<Apple>() {
+            @Override
             public int compare(Apple a1, Apple a2) {
                 return a1.getWeight().compareTo(a2.getWeight());
             }
@@ -43,6 +44,12 @@ public class Sorting {
         // [Apple{color='red', weight=10}, Apple{color='red', weight=20}, Apple{color='green', weight=155}]
         inventory.sort(comparing(Apple::getWeight));
         System.out.println(inventory);
+
+        // 5 apptec
+        /* */
+        inventory.sort(comparing(Apple::getColor, Comparator.comparingInt(String::length)).thenComparing(comparing(Apple::getWeight).reversed()));
+        System.out.println(inventory);
+
     }
 
     public static class Apple {
@@ -70,6 +77,7 @@ public class Sorting {
             this.color = color;
         }
 
+        @Override
         public String toString() {
             return "Apple{" +
                     "color='" + color + '\'' +
@@ -79,6 +87,7 @@ public class Sorting {
     }
 
     static class AppleComparator implements Comparator<Apple> {
+        @Override
         public int compare(Apple a1, Apple a2) {
             return a1.getWeight().compareTo(a2.getWeight());
         }

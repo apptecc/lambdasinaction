@@ -8,6 +8,9 @@ import static java.util.stream.Collectors.toList;
 
 import static lambdasinaction.chap4.Dish.menu;
 
+/**
+ * @author Administrator
+ */
 public class StreamBasic {
 
     public static void main(String... args) {
@@ -30,6 +33,7 @@ public class StreamBasic {
         }
         List<String> lowCaloricDishesName = new ArrayList<>();
         Collections.sort(lowCaloricDishes, new Comparator<Dish>() {
+            @Override
             public int compare(Dish d1, Dish d2) {
                 return Integer.compare(d1.getCalories(), d2.getCalories());
             }

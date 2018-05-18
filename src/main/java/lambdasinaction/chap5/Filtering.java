@@ -1,12 +1,12 @@
 package lambdasinaction.chap5;
 
-import lambdasinaction.chap4.*;
+import lambdasinaction.chap4.Dish;
+import org.junit.Test;
 
-import java.util.stream.*;
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
 
 import static java.util.stream.Collectors.toList;
-
 import static lambdasinaction.chap4.Dish.menu;
 
 public class Filtering {
@@ -45,5 +45,10 @@ public class Filtering {
                         .collect(toList());
 
         dishesSkip2.forEach(System.out::println);
+    }
+
+    @Test
+    public void aa() throws Exception {
+
     }
 }

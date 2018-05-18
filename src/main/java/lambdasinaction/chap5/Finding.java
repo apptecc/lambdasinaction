@@ -1,13 +1,20 @@
 package lambdasinaction.chap5;
 
 import lambdasinaction.chap4.*;
+import org.junit.Test;
 
 import java.util.stream.*;
 import java.util.*;
 
 import static lambdasinaction.chap4.Dish.menu;
 
+/**
+ * @author Administrator
+ */
 public class Finding {
+
+    public static String poem = "群芳摇落独暄妍, 占尽风情向小园.";
+
 
     public static void main(String... args) {
         if (isVegetarianFriendlyMenu()) {
@@ -18,7 +25,7 @@ public class Finding {
         System.out.println(isHealthyMenu2());
 
         Optional<Dish> dish = findVegetarianDish();
-        dish.ifPresent(d -> System.out.println(d.getName()));
+        dish.ifPresent(d -> System.out.println("name: " + d.getName() + "calories: " + d.getCalories()));
     }
 
     private static boolean isVegetarianFriendlyMenu() {
@@ -35,6 +42,13 @@ public class Finding {
 
     private static Optional<Dish> findVegetarianDish() {
         return menu.stream().filter(Dish::isVegetarian).findAny();
+    }
+
+    @Test
+    public void testOptionsal() throws Exception {
+        String s = null;
+        Optional<String> s1 = Optional.ofNullable(s);
+        System.out.println(s1.isPresent());
     }
 
 }

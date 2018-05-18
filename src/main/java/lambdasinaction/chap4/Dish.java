@@ -2,6 +2,9 @@ package lambdasinaction.chap4;
 
 import java.util.*;
 
+/**
+ * @author Administrator
+ */
 public class Dish {
 
     private final String name;
